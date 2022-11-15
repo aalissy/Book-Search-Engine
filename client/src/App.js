@@ -10,8 +10,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@ap
 import { setContext } from "@apollo/client/link/context";
 
 // Constructing the GraphQL API endpoint
-const httpLink = createHttpLink({
+const client = new ApolloClient({
   uri: "/graphql",
+  cache: new InMemoryCache(),
 });
 
 // Constructing request middleware that attaches the JWT token to requests as an `authorization` header
